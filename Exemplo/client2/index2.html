@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+        <title>testDataChannel</title>
+        <!--<script src="../adapter.js"></script>-->
+        <script src="adapter.js"></script>
+        <script src="main.js"></script>
+
+        <meta charset="utf-8">
+    </head>
+            
+
+
+    <body>
+        <div class="controlbox">
+            <button id="connectButton" name="connectButton" onclick="start(true)">
+              Connect
+            </button>
+            <button id="disconnectButton" name="disconnectButton" onclick="disconnectPeers(true)" disabled>
+              Disconnect
+            </button>
+        </div>
+
+        <br />
+
+        <div class="messagebox">
+            <label for="message">Enter a message:
+                <input type="text" name="message" id="message" placeholder="Message text" inputmode="latin" size=60 maxlength=120>
+            </label>
+
+            <button id="sendButton" name="sendButton" onclick="sendMessage()" disabled >
+                Send
+            </button>
+
+            <input type="file" id="filesx" name="filesx[]"
+                   onchange=readmultifiles(this.files) multiple=""/>
+            <div id="bag">
+                <ul/>
+            </div>
+            <div id="prev">
+                <ul/>
+                <image id="pre" src=""></image>
+            </div>
+            <div class="messagebox" id="receivebox">
+                <p>Messages received:</p>
+            </div>
+        <!--<input type="button" id="start" onclick="start(true)" value="Start Video"></input>-->
+
+        <script type="text/javascript">
+            pageReady();
+        </script>
+    </body>
+</html>
