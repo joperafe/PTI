@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <title>testytest</title>
+    <!--<script src="../adapter.js"></script>-->
+    <!--https://peterolson.github.com/BigInteger.js/BigInteger.min.js-->
+    <script src="http_peterolson.github.com_BigInteger.js_BigInteger.js"></script>
+    <script src="adapter.js"></script>
+    <script src="webrtc.js"></script>
+    <script src="main.js"></script>
+    <script src="Chord.js"></script>
+    <script src="Files.js"></script>
+    <meta charset="utf-8">
+    <link rel="icon"
+          href="https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2/128/marijuana-circle-green-512.png">
+</head>
+
+
+<body style="padding-left: 15px">
+<div class="controlbox">
+    <button id="disconnectButton" name="disconnectButton" onclick="disconnectPeers(true)" disabled>
+        Disconnect
+    </button>
+
+    <button id="joinButton" name="joinNetwork" onclick="joinNetwork(true)">
+        Join Network
+    </button>
+
+    <button id="printFTButton" name="printFTButton" onclick="printFT(true)">
+        Print Finger Table
+    </button>
+
+    <button id="stabilizeBtn" name="stabilizeBtn" onclick="stabilizeF()">
+        Stabilize
+    </button>
+
+</div>
+
+<hr/>
+<div>
+    <div>
+        ID: <p id="id"></p>
+    </div>
+    <div>
+        Succ:
+        <p id="succ"></p>
+    </div>
+    <div>
+        Pred:
+        <p id="pred"></p>
+    </div>
+</div>
+
+<hr/>
+<div>
+    <label for="message">Find key successor
+        <input type="message" min="1" max="1" name="fi" id="key"
+               placeholder="key, eg:'4b84b15bff6ee5796152495a230e45e3d7e947d9'" inputmode="latin" size=60 maxlength=120>
+    </label>
+
+    <button id="findKBtn" name="findKBtn" onclick="fkBtnHandler()">
+        Find
+    </button>
+
+    <div id="fkBox">
+
+    </div>
+
+</div>
+<hr/>
+<div class="messagebox">
+    <p><b>Message Box</b></p>
+    <label for="message">Choose FT element
+        <input type="number" min="1" max="1" name="fi" id="fi" placeholder="i in FT" inputmode="latin" size=60
+               maxlength=120>
+    </label>
+    <label for="message">Enter a message:
+        <input type="text" name="message" id="message" placeholder="Message text" inputmode="latin" size=60
+               maxlength=120>
+    </label>
+
+    <button id="sendButton" name="sendButton" onclick="sendTextMessage()">
+        Send
+    </button>
+
+    <div class="messagebox" id="receivebox">
+        <p>Messages received:</p>
+    </div>
+</div>
+
+<hr/>
+<div class="imageBox">
+    <p><b>Image Box</b></p>
+    <label for="message">Choose FT element
+        <input type="number" min="1" max="1" name="fi" id="fi2" placeholder="i in FT" inputmode="latin" size=60
+               maxlength=120>
+    </label>
+    <label for="message">Choose File
+        <input type="file" name="file" id="file" placeholder="Upload File" onchange="readmultifiles(this.files)"
+               multiple="">
+    </label>
+    <button id="uploadButton" name="uploadButton" onclick="uploadFile()">
+        Upload File
+    </button>
+    <br/>
+    <label for="message">Choose File from list
+        <input type="number" min="1" max="1" name="fi" id="fk" placeholder="i in Files" inputmode="latin" size=60
+               maxlength=120>
+    </label>
+    <button id="reqButton" name="requestButton" onclick="reqFile()">
+        Request File
+    </button>
+    <br/>
+    <label for="message">Choose File from localStorage
+        <input type="number" min="1" max="1" name="fi" id="flc" placeholder="i in Files" inputmode="latin" size=60
+               maxlength=120>
+    </label>
+    <button id="setImgButton" name="setImgButton" onclick="setImg()">
+        Show Image
+    </button>
+
+    <div id="fltable"></div>
+
+    <div id="bag">
+        <ul>
+        </ul>
+        <img name="preview" id="preview" src=" ">
+    </div>
+</div>
+
+<hr/>
+<div class="FingerTableBox">
+    <p><b>Finger Table Box</b></p>
+    <div id="pftable">
+
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+    pageReady();
+</script>
+</body>
+</html>
